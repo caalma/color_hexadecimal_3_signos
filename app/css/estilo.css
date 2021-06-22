@@ -1,0 +1,36 @@
+
+* {
+	font-family:'Asap', sans-serif;
+	color:#234;
+}
+body {
+	padding:20px;
+	margin:0;
+	text-align:center;
+}
+
+
+ul#cnt {
+	padding:0;
+	margin:0 auto;
+	display:block;
+	max-width:950px;
+}
+
+ul li {
+	list-style:none;
+	display:inline-block;
+	width:30px;
+	height:30px;
+	padding:10px;
+	border-radius:3px;
+	margin:2px;
+	border-width:1px;
+	border-style:solid;
+	line-height:30px;
+}
+
+
+header {
+	margin-bottom:40px;
+}
