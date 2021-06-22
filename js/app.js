@@ -20,7 +20,12 @@ let listar_colores = function(n){
 	return col;
 }
 
-let opuesto = function(col){
+let luminosidad = function(col){
+	let rgb = _.map(col.split(''), function(h){ return parseInt((h+h),16)});
+	return Math.ceil(0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2]);
+}
+
+let opuesto_directo = function(col){
 	let opu = [];
 	let sl = sig.length;
 	for(let i in col.split('')){
@@ -29,6 +34,15 @@ let opuesto = function(col){
 	return opu.join('');
 }
 
+let opuesto_luminico = function(col){
+	let lum = luminosidad(col);
+	let aju = 255/3;
+	let opu = lum - aju;
+	if(lum < 255/2){
+		opu = lum + aju;
+	}
+	return (opu % 255).toString(16).repeat(3);
+}
 
 $(document).ready(function(){
 	let variedad = 3;
@@ -41,7 +55,8 @@ $(document).ready(function(){
 	let lc = listar_colores(variedad);
 	
 	_.each(lc, function(col){
-		cnt.append(_.template('<li style="background-color:#<%= c %>;border-color:#<%= o %>;color:#<%= o %>"><%= c %></li>')({c:col, o:opuesto(col)}));
+		let tex = '<li style="background-color:#<%= c %>;border-color:#<%= o %>;color:#<%= o %>"><%= c %></li>';
+		cnt.append(_.template(tex)({c:col, o:opuesto_luminico(col)}));
 	});
 	tot.text(_.template('Total de colores: <%= t %>')({t: lc.length}));
 });
