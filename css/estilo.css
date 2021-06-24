@@ -1,3 +1,4 @@
+@CHARSET "UTF-8";
 
 * {
 	font-family:'Asap', sans-serif;
@@ -9,15 +10,13 @@ body {
 	text-align:center;
 }
 
-
 ul#cnt {
 	padding:0;
 	margin:0 auto;
 	display:block;
 	max-width:950px;
 }
-
-ul li {
+ul#cnt li {
 	list-style:none;
 	display:inline-block;
 	width:30px;
@@ -30,7 +29,23 @@ ul li {
 	line-height:30px;
 }
 
-
 header {
 	margin-bottom:40px;
+}
+
+a.github_repositorio {
+    position:fixed;
+    bottom:5px;
+    left:5px;
+    opacity:.6;
+    overflow:hidden;
+    background-image:url(../img/github_face.svg);
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    background-position:center;
+    width:30px;
+    height:30px;
+}
+a.github_repositorio:hover {
+    opacity:1;
 }
