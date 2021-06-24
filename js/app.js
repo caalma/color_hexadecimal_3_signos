@@ -55,7 +55,7 @@ $(document).ready(function(){
 	let lc = listar_colores(variedad);
 	
 	_.each(lc, function(col){
-		let tex = '<li style="background-color:#<%= c %>;border-color:#<%= o %>;color:#<%= o %>"><%= c %></li>';
+		let tex = '<li style="background-color:#<%= c %>;color:#<%= o %>"><%= c %></li>';
 		cnt.append(_.template(tex)({c:col, o:opuesto_luminico(col)}));
 	});
 	tot.text(_.template('Total de colores: <%= t %>')({t: lc.length}));
